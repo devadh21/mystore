@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* size: 2rem; */
+
+    /* scroll-behavior: smooth; */
+
+}
+html{
+    /* font-size: 75%; */
+}
+body{
+    /* max-width: 1200px; */
+    
+
+    /* box-sizing: border-box; */
+    /* background-color: #f8f5f2; */
+    /* background-color: #e913b7; */
+    background-image: url("/img/background_image.png"); 
+    /* background-repeat: no-repeat; */
+    background-size: 1400px 700px;
+    color: #5a3733;
+
+    /* font-family: 'Alegreya', sans-serif; */ 
+    /* font-family: cursive; */
+}
+
+.full-screen{
+    @apply min-h-[calc(100vh-182px)] 
+} 
+.container{
+    @apply  mx-auto md:w-11/12 pt-10 pb-5 
+} 
+.style_btn{
+    @apply  bg-secondary4 p-2 w-fit hover:bg-secondary2 hover:text-secondary5 text-secondary5 transition-all duration-300 
+}
+.style_btn_active{
+    @apply  border-b-secondary2 border-b-2  
+}
+.transition_menu{
+    transition: all 1s;
+} 
+
+.polygon{
+    clip-path: polygon(50% 7%, 100% 25%, 100% 75%, 50% 93%, 0% 75%, 0% 25%);
+}
+.polygon_hero{
+    clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+}
+
+/* style scroller bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #c0c0be;
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ad5a1d;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #762008;
+}
+
+
+
+.fade_In_left{
+    animation: fadeIn 1s linear backwards ;
+    animation-delay: .5s;
+}
+@keyframes fadeIn{
+    0% {
+        transform:translateY(-150px) scale(0) rotate(45deg);
+        transform-origin:left;
+    }
+    100% {
+        transform:translateY(0px) scale(1) rotate(0deg);
+        transform-origin:left;
+    }
+}
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import ButtonLink from "@/elements/ButtonLink";
-import { useRef, useState, useEffect } from "react";
+
 
 export default function Hero() {
   return (

@@ -10,6 +10,9 @@ import Newslatter from "@/components/home/Newslatter";
 import { IProduct } from "@/typings/interfaces";
 
 
+//test2 test3
+
+
 async function getProducts() {   
   const res:IProduct[] | undefined = await getProductsActions();
 

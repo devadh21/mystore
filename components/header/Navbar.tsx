@@ -42,10 +42,6 @@ export default function Navbar() {
       bgMenuMobile.current?.classList.toggle("hidden");
     }
   };
-  // const menu_clicked = path.ch;
-
-  console.log("routeActive", routeActive);
-
   return (
     <nav className={`  ${classN}`}>
       <div className="relative container flex  md:justify-between  items-center bg-secondary5  px-4 !py-2   shadow-lg ">

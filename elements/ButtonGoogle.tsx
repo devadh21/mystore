@@ -3,7 +3,7 @@ import React from "react";
 interface buttonProps {
   onClick?: any;
 }
-const ButtonGoogle: React.FC<buttonProps> = ({ onClick }) => {
+const ButtonGoogle: React.FC<buttonProps> = ({ onClick }) => { 
   return (
     <button
       aria-label="Sign in with Google"

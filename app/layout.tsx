@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
@@ -6,16 +6,9 @@ import Footer from "@compo/footer/Footer";
 import Navbar from "@compo/header/Navbar";
 
 import { CartProvider } from "@/context/CartContext";
+import { SessionProvider } from "next-auth/react";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
-
-// export const metadata: Metadata = {
-//   title: "Honey Bee",
-//   description: "honey bee",
-//   icons: {
-//     icon: "/favicon_io/favicon-32x32.png",
-//   },
-// };
 
 export default function RootLayout({
   children,
@@ -44,15 +37,13 @@ export default function RootLayout({
           href="favicon_io/favicon-16x16.png"
         />
         <link rel="manifest" href="/favicon_io/site.webmanifest" />
-        <CartProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </CartProvider>
-
-        {/* <script src="https://flowbite.com/docs/flowbite.min.js"></script>
-        <script src="https://flowbite.com/docs/datepicker.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> */}
+        <SessionProvider >
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
+        </SessionProvider>
       </body>
     </html>
   );

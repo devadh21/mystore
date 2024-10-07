@@ -39,7 +39,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       google: {
-        'text-gray': '#3c4043',
+        'text-gray': '#3c4043', 
         'button-blue': '#1a73e8',
         'button-blue-hover': '#5195ee',
         'button-dark': '#202124',

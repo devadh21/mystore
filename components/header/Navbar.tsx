@@ -8,16 +8,42 @@ import Logo from "@compo/header/Logo";
 import { useRef, useState } from "react";
 import Link from "next/link";
 
-import React, { useContext } from "react";
+import React, {useEffect, useContext } from "react";
 import CartContext from "@/context/CartContext";
+
+import ButtonGoogle from "@/elements/ButtonGoogle";
+import { getProviders, signIn } from "next-auth/react";
 
 export default function Navbar() {
   const [routeActive, setRouteActive] = useState("");
+  const [providers, setProviders] = useState()
 
   const mobile_menu = useRef<HTMLDivElement>(null);
   const mobile_menu_ul = useRef<HTMLUListElement>(null);
   const bgMenuMobile = useRef<HTMLDivElement>(null);
   const icon_menu = useRef<HTMLDivElement>(null);
+
+  // sing in with google
+  
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+      const res = await getProviders();      
+      setProviders(res);
+    };
+
+    fetchProviders();
+  }, []);
+
+  const handleClickButtonGoogle = ()=>{
+    if (providers?.google) {
+      signIn(providers.google.id, {
+        callbackUrl: '/admin',  // Redirect to home page after login
+      });
+    } else {
+      console.error('Google provider is not available');
+    }
+  };
 
   // Use Context react
   const { nbrItems }: any = useContext(CartContext);
@@ -42,6 +68,8 @@ export default function Navbar() {
       bgMenuMobile.current?.classList.toggle("hidden");
     }
   };
+
+
   return (
     <nav className={`  ${classN}`}>
       <div className="relative container flex  md:justify-between  items-center bg-secondary5  px-4 !py-2   shadow-lg ">
@@ -96,16 +124,14 @@ export default function Navbar() {
               {nbrItems || 0}
             </p>
           </Link>
-          {/* Login */}
-          <Link
-            href={"/admin"}
-            className="ml-6 flex flex-col items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer"
-            title="Login"
-          >
-            <div className=" bg-secondary2/70 w-3 h-3 rounded-full "></div>
-            <div className=" bg-secondary2/70 w-5 h-3 rounded-t-full "></div>
-            <div className=""></div>
-          </Link>
+          {/* sign in with google */}
+          <div className="mx-7">
+            {providers?.google ? (
+              <ButtonGoogle onClick={handleClickButtonGoogle} />
+            ) : (
+              <ButtonGoogle />
+            )}
+          </div>
 
           {/* icon humborger menu */}
           <div

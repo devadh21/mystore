@@ -19,6 +19,12 @@ export interface ICustomer {
     created_at?: string;
 
   }
+  export interface IUser {
+    full_name: string;
+    email: string;
+    password: string;
+    
+  } 
 
 export interface IOrderSummaryData {
     product?: string;  // product name

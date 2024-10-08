@@ -9,6 +9,7 @@ const ButtonGoogle: React.FC<buttonProps> = ({ onClick }) => {
       aria-label="Sign in with Google"
       className="flex items-center bg-white border border-button-border-light rounded-md p-0.5 pr-3"
       onClick={(e) => { onClick && onClick(true)}}
+      title="Sign in with google"
     >
       <div className="flex items-center justify-center bg-white w-9 h-9 rounded-l">
         <svg
@@ -36,9 +37,6 @@ const ButtonGoogle: React.FC<buttonProps> = ({ onClick }) => {
           ></path>
         </svg>
       </div>
-      <span className="text-sm text-google-text-gray tracking-wider">
-        Sign in with Google
-      </span>
     </button>
   );
 };

@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "@compo/header/Logo";
 import Image from "next/image";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react"; 
+
 
 export default function TopBar() {
-  const session = useSession();
+  const session = useSession(); 
   return (
     <div className="flex justify-between items-center w-full  ">
       <div className=" min-w-64 p-2">
@@ -58,8 +59,8 @@ export default function TopBar() {
           <Image
             src={session.data?.user?.image || '/icons/avatar.png'}
             alt="avatar"
-            width={50}
-            height={50}
+            width={30}
+            height={30}
             className=" rounded-full"
             title={session.data?.user?.email || ""}
           />

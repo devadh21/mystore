@@ -37,7 +37,7 @@ body{
     @apply  mx-auto md:w-11/12 pt-10 pb-5 
 } 
 .style_btn{
-    @apply  bg-secondary4 p-2 w-fit hover:bg-secondary2 hover:text-secondary5 text-secondary5 transition-all duration-300 
+    @apply   p-2    hover:text-secondary2 text-secondary5 transition-all duration-300 
 }
 .style_btn_active{
     @apply  border-b-secondary2 border-b-2  

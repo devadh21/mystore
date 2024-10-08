@@ -8,16 +8,26 @@ import Logo from "@compo/header/Logo";
 import { useRef, useState } from "react";
 import Link from "next/link";
 
-import React, {useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import CartContext from "@/context/CartContext";
 
 import ButtonGoogle from "@/elements/ButtonGoogle";
-import { ClientSafeProvider, getProviders, LiteralUnion, signIn } from "next-auth/react";
+import {
+  ClientSafeProvider,
+  getProviders,
+  LiteralUnion,
+  signIn,
+  useSession,
+} from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers/index";
 
 export default function Navbar() {
+  const { status } = useSession();
   const [routeActive, setRouteActive] = useState("");
-  const [providers, setProviders] = useState<Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider> | null>()
+  const [providers, setProviders] = useState<Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  > | null>();
 
   const mobile_menu = useRef<HTMLDivElement>(null);
   const mobile_menu_ul = useRef<HTMLUListElement>(null);
@@ -25,24 +35,23 @@ export default function Navbar() {
   const icon_menu = useRef<HTMLDivElement>(null);
 
   // sing in with google
-  
 
   useEffect(() => {
     const fetchProviders = async () => {
-      const res = await getProviders();      
+      const res = await getProviders();
       setProviders(res);
     };
 
     fetchProviders();
   }, []);
 
-  const handleClickButtonGoogle = ()=>{
+  const handleClickButtonGoogle = () => {
     if (providers?.google) {
       signIn(providers.google.id, {
-        callbackUrl: '/admin',  // Redirect to home page after login
+        callbackUrl: "/admin", // Redirect to home page after login
       });
     } else {
-      console.error('Google provider is not available');
+      console.error("Google provider is not available");
     }
   };
 
@@ -69,7 +78,6 @@ export default function Navbar() {
       bgMenuMobile.current?.classList.toggle("hidden");
     }
   };
-
 
   return (
     <nav className={`  ${classN}`}>
@@ -127,11 +135,21 @@ export default function Navbar() {
           </Link>
           {/* sign in with google */}
           <div className="mx-7">
-            {providers?.google ? (
-              <ButtonGoogle onClick={handleClickButtonGoogle} />
-            ) : (
-              <ButtonGoogle />
-            )}
+            <div>
+              {status == "unauthenticated" ? (
+                <ButtonGoogle onClick={handleClickButtonGoogle} />
+              ) : (
+                <Link
+                  href={"/admin"}
+                  className=" transition-all duration-300 !w-8 hover:!w-9 md:!w-5 md:hover:!w-6 !relative "
+                  title="Dashbord"
+                >
+                  <span className="p-1  font-bold text-sm  text-center   text-secondary2 hover:text-secondary  ">
+                    Dashboard
+                  </span>
+                </Link>
+              )}
+            </div>
           </div>
 
           {/* icon humborger menu */}
@@ -185,7 +203,7 @@ export default function Navbar() {
                     <ButtonLink
                       bt_href={item.href}
                       label={item.label}
-                      className="!w-full"
+                      className=""
                     />
                   </div>
                 </div>

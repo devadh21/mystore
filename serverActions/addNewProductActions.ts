@@ -3,7 +3,7 @@
 import dbConnect from "@/app/helpers/sqliteDb";
 import { revalidatePath } from "next/cache";
 
-export  const addNewProduct = async (formdata: FormData) => {    
+export  const addNewProduct = async (formdata: FormData) => {     
     const name = formdata.get("name") as string;
     const price = formdata.get("price") as string;
     const old_price = formdata.get("old_price") as string;

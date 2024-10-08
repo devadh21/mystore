@@ -24,6 +24,6 @@
       "@compo/*": ["./components/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.tsx", "context/CartContext.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.tsx", "context/CartContext.tsx", "app/(pages)/auth/login/page.tsx", "components/admi/TopBar.tsx", "components/header/Navbar.tsx"],
   "exclude": ["node_modules"]
 }

@@ -12,11 +12,12 @@ import React, {useEffect, useContext } from "react";
 import CartContext from "@/context/CartContext";
 
 import ButtonGoogle from "@/elements/ButtonGoogle";
-import { getProviders, signIn } from "next-auth/react";
+import { ClientSafeProvider, getProviders, LiteralUnion, signIn } from "next-auth/react";
+import { BuiltInProviderType } from "next-auth/providers/index";
 
 export default function Navbar() {
   const [routeActive, setRouteActive] = useState("");
-  const [providers, setProviders] = useState()
+  const [providers, setProviders] = useState<Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider> | null>()
 
   const mobile_menu = useRef<HTMLDivElement>(null);
   const mobile_menu_ul = useRef<HTMLUListElement>(null);

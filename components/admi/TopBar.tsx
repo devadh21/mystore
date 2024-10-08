@@ -56,12 +56,12 @@ export default function TopBar() {
       <div className="flex justify-center items-center gap-2">
         <div className=" ">
           <Image
-            src={session.data?.user?.image}
+            src={session.data?.user?.image || '/icons/avatar.png'}
             alt="avatar"
             width={50}
             height={50}
             className=" rounded-full"
-            title={session.data?.user?.email}
+            title={session.data?.user?.email || ""}
           />
         </div>
         <div

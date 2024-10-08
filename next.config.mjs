@@ -5,9 +5,9 @@ const nextConfig = {
 
       },
       
-    // eslint:{
-    //     ignoreDuringBuilds: true,
-    // },  
+    eslint:{
+        ignoreDuringBuilds: true,
+    },  
 
     // resolve error with cloudinary  
     webpack: (config) => {

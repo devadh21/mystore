@@ -136,9 +136,9 @@ export default function Navbar() {
           {/* sign in with google */}
           <div className="mx-7">
             <div>
-              {status == "unauthenticated" ? (
-                <ButtonGoogle onClick={handleClickButtonGoogle} />
-              ) : (
+              {status === "unauthenticated" &&  <ButtonGoogle onClick={handleClickButtonGoogle} />}
+              {status === "loading" &&  <div className="w-12 h-10 bg-white animate-pulse rounded-lg "></div>}
+              {status === "authenticated" && (
                 <Link
                   href={"/admin"}
                   className=" transition-all duration-300 !w-8 hover:!w-9 md:!w-5 md:hover:!w-6 !relative "

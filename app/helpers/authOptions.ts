@@ -16,25 +16,9 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
 
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, 
 
-  callbacks: {
-    async session({ session }) {
-      const full_name = session.user?.name as string;
-      const email = session.user?.email as string;
-      const password = "";
-
-      const add_new_user = async () => {
-        const res = await addNewUser(full_name, email, password);
-      };
-      const emailIsExist = await EmailIsExistAction(email);
-      if (!emailIsExist) {
-        add_new_user();
-      }
-
-      return session;
-    },
-  },
+ 
 
   // if want to use your custom login page
   pages: {

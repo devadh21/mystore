@@ -10,7 +10,7 @@ export const why_us = [
   {
     title: "natural bees",
     description:
-      "Discover the essence of nature's perfection at our Honey Shop, where we pay homage to the marvel of Natural Bees. Our honey is a testament to their craftsmanship, meticulously crafted by these wondrous creatures. From their hives to your table, experience the pure, unadulterated sweetness of our products, a true embodiment of the natural world's beauty and goodness.",
+      "-Discover the essence of nature's perfection at our Honey Shop, where we pay homage to the marvel of Natural Bees. Our honey is a testament to their craftsmanship, meticulously crafted by these wondrous creatures. From their hives to your table, experience the pure, unadulterated sweetness of our products, a true embodiment of the natural world's beauty and goodness.",
     img:  "/img/bees.png" ,
   },
   {
